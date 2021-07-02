@@ -1,0 +1,13 @@
+<nav class="text-center p-2 row">
+    <div class="col">
+        <%= image_tag 'logo', class: 'float-start' %>
+    </div>
+
+    <div class="col text-center pt-1">
+        <%= l(Time.now, format: "%H:%M • %a, %d de %B") %>
+    </div>
+
+    <div class="col">
+        <%= image_tag 'perfil', class: 'float-end perfil_photo' %>
+    </div>
+</nav>

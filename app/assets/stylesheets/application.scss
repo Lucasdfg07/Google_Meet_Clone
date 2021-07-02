@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+@import "bootstrap/scss/bootstrap";
+
+// Main imports
+@import "home";
+
+body {
+    font-family: 'Varela Round', sans-serif;
+}
+
+nav, footer {
+    box-shadow: 0px 0px 10px rgba(10,10,10,0.3);
+    font-size: 1.3rem;
+    color: rgba(48, 47, 47, 0.8);
+}
