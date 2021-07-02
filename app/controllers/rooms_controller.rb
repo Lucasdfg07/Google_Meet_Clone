@@ -18,7 +18,7 @@ class RoomsController < ApplicationController
     end
 
     def search
-        room = Room.find_or_create_by(vanage_session_id: params[:room_url])
+        room = Room.find_by(vanage_session_id: params[:room_url])
         
         if room.present?
             redirect_to "/rooms/#{room.vanage_session_id}"
