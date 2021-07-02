@@ -30,6 +30,6 @@ class RoomsController < ApplicationController
     private 
 
     def set_room
-        @room = Room.find(params[:id])
+        @room = Room.find_by(vanage_session_id: params[:id])
     end
 end

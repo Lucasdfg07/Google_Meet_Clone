@@ -1,4 +1,5 @@
 <%= javascript_pack_tag 'modal' %>
+<%= javascript_pack_tag 'chat' %>
 
 <!-- Modal -->
 <div class="chat_modal">
@@ -14,7 +15,29 @@
         pessoas na chamada e são excluídas quando ela termina.
     </p>
 
-    
+    <div id="messages">
+        <% @room.messages.each do |message| %>
+            <div class="mt-3">
+                <small><%= message.user %> (<%= message.created_at.strftime("%d/%m/%Y %H:%M") %>)</small> <br />
+                <%= message.content %>
+            </div>
+        <% end %>
+    </div>
+
+    <%= form_with(model: Message.new, remote: true) do |f| %>
+        <%= f.hidden_field :room_id, value: @room.id %>
+        <%= f.hidden_field :user, value: "nilton" %>
+
+        <div class="row">
+            <div class="col-8">
+                <%= f.text_field :content, class: 'form-control', placeholder: 'Digite algo para seus colegas :)' %>
+            </div>
+
+            <div class="col-4">
+                <%= f.submit 'Enviar', class: 'btn btn-primary w-100', data: { disable_with: false } %>
+            </div>
+        </div>
+    <% end %>
 </div>
 
 <!-- Button trigger modal -->

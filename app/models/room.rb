@@ -1,4 +1,6 @@
 class Room < ApplicationRecord
+    has_many :messages
+    
     before_create :set_opentok_id
 
     private

@@ -39,7 +39,12 @@
     padding: 20px;
     z-index: 9999;
     margin-top: 120px;
+}
+
+#messages {
     overflow-y: scroll;
+    height: 200px;
+    background-color: rgba(224, 224, 224, 0.4);
 }
 
 .close {

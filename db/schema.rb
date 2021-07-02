@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_02_130517) do
+ActiveRecord::Schema.define(version: 2021_07_02_171716) do
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "room_id", null: false
+    t.string "user"
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+  end
 
   create_table "rooms", force: :cascade do |t|
     t.string "vanage_session_id"
@@ -18,4 +27,5 @@ ActiveRecord::Schema.define(version: 2021_07_02_130517) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "messages", "rooms"
 end
