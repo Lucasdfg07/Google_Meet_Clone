@@ -1,8 +1,6 @@
 class Room < ApplicationRecord
     before_create :set_opentok_id
 
-    validates_presence_of :name
-
     private
 
     def set_opentok_id

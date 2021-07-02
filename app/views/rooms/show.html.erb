@@ -1,0 +1,17 @@
+<div class="container mt-4">
+    <div class="mb-4">
+        Código da sala: <b><%= params[:id] %></b>
+    </div>
+
+    <div class="row">
+        <div id="videos"
+            class="col"
+            data-controller="vanage"
+            data-vanage-token="<%= @token %>"
+            data-vanage-api-key="<%= ENV['VANAGE_API_KEY'] %>"
+            data-vanage-session-id="<%= @room.vanage_session_id %>"
+            data-vanage-name="<%= params[:user_name] %>"></div>
+    </div>
+</div>
+
+<%= render 'rooms/chat' %>

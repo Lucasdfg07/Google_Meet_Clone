@@ -9,12 +9,27 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body>
+    <%= javascript_pack_tag 'alert' %>
+
+    <%= render 'shared/navbar' %>
+    
     <%= yield %>
 
     <%= render 'shared/footer' %>
+
+    <!-- Alertas -->
+    <% if alert %>
+      <p class="alert alert-danger alert"><%= alert %></p>
+    <% end %>
+
+    <% if notice %>
+      <p class="alert alert-success notice"><%= notice %></p>
+    <% end %>
   </body>
 </html>

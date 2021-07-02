@@ -1,7 +1,5 @@
-<%= render 'shared/navbar' %>
-
 <div class="row home_content container">
-    <div class="col">
+    <div class="col-md mt-3">
         <h1>Videochamadas premium.</h1>
         <h1>Agora gratuitas para todos.</h1>
 
@@ -13,22 +11,28 @@
 
         <div class="mt-4 row">
             <div class="col-4">
-                <%= link_to '#', class: 'btn btn-primary p-2' do %>
-                    <%= image_tag 'icons/video_call' %>
-                    Nova reunião
+                <%= form_with(model: Room.new) do |f| %>
+                    <%= button_tag nil, class: 'btn btn-primary p-2' do %>
+                        <%= image_tag 'icons/video_call' %>
+                        Nova reunião
+                    <% end %>
                 <% end %>
             </div>
 
             <div class="col-8">
-                <div class="input-group">
-                    <%= image_tag 'icons/keyboard', class: 'me-2' %>
-                    <%= text_field_tag :search, nil, class: 'form-control', placeholder: 'Digite um código ou link' %>
-                </div>
+                <%= form_with(url: search_rooms_path, method: :get) do |f| %>
+                    <div class="input-group">
+                        <%= image_tag 'icons/keyboard', class: 'me-2' %>
+                        <%= f.text_field :room_url, class: 'form-control', placeholder: 'Digite um código ou link' %>
+
+                        <%= f.submit 'Acessar', class: 'submit_search' %>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>
 
-    <div class="col-4 offset-1">
+    <div class="col-md-4 offset-1 mt-3">
         <%= render 'carousel' %>
     </div>
 </div>
