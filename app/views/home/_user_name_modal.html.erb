@@ -1,0 +1,21 @@
+<!-- Modal -->
+<div class="modal fade" id="<%= action %>Modal" tabindex="-1" aria-labelledby="<%= action %>ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="<%= action %>ModalLabel">Como quer ser chamado na sala? :)</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <%= f.text_field :user_name, class: 'form-control', placeholder: 'Digite o Seu Nome', required: true %>
+            </div>
+
+            <div class="modal-footer">
+                <%= button_tag nil, class: 'btn btn-primary p-2' do %>
+                    Acessar
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

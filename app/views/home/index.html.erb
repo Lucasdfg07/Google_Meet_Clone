@@ -12,20 +12,24 @@
         <div class="mt-4 row">
             <div class="col-4">
                 <%= form_with(model: Room.new) do |f| %>
-                    <%= button_tag nil, class: 'btn btn-primary p-2' do %>
+                    <%= render "user_name_modal", f: f, action: "create" %>
+
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
                         <%= image_tag 'icons/video_call' %>
                         Nova reunião
-                    <% end %>
+                    </button>
                 <% end %>
             </div>
 
             <div class="col-8">
                 <%= form_with(url: search_rooms_path, method: :get) do |f| %>
+                    <%= render "user_name_modal", f: f, action: "search" %>
+
                     <div class="input-group">
                         <%= image_tag 'icons/keyboard', class: 'me-2' %>
-                        <%= f.text_field :room_url, class: 'form-control', placeholder: 'Digite um código ou link' %>
+                        <%= f.text_field :room_url, class: 'form-control', placeholder: 'Digite um código ou link', required: true %>
 
-                        <%= f.submit 'Acessar', class: 'submit_search' %>
+                        <%= f.submit 'Acessar', class: 'submit_search', 'data-bs-toggle': "modal", 'data-bs-target': "#searchModal" %>
                     </div>
                 <% end %>
             </div>

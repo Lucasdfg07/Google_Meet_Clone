@@ -3,9 +3,9 @@ class RoomsController < ApplicationController
 
     def create
         @room = Room.new
-
+        
         if @room.save
-            redirect_to "/rooms/#{@room.vanage_session_id}", notice: 'Sala criada com sucesso.'
+            redirect_to "/rooms/#{@room.vanage_session_id}?user_name=#{params[:room][:user_name]}", notice: 'Sala criada com sucesso.'
         else
             redirect_to root_path, alert: 'Erro ao criar sala.'
         end
