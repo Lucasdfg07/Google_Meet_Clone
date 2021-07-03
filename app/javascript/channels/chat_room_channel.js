@@ -9,12 +9,15 @@ consumer.subscriptions.create("ChatRoomChannel", {
     // Called when the subscription has been terminated by the server
   },
 
-  received(content, user, created_at) {
+  received(message) {
+    let date = new Date();
+    var dateStringWithTime = moment(date).format('DD-MM-YYYY HH:MM');
+
     // Called when there's incoming data on the websocket for this channel
     $('#messages').append(
       '<div class="mt-3">' +
-          '<small>'+ user +' ('+ created_at +')</small> <br />'+
-          ''+ content +'' +
+          '<small>'+ message.user +' ('+ dateStringWithTime +')</small> <br />'+
+          ''+ message.content +'' +
       '</div>'
     )
 

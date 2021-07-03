@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
         @message = Message.new(messages_params)
 
         if @message.save
-            ActionCable.server.broadcast("chat_room_channel", @message.content, @message.user, @message.created_at.strftime("%d/%m/%Y %H:%M"))
+            ActionCable.server.broadcast("chat_room_channel", @message)
         else
             redirect_to request.referrer, alert: 'Erro ao enviar mensagem! Tente novamente mais tarde.'
         end
