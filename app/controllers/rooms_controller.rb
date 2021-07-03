@@ -21,7 +21,7 @@ class RoomsController < ApplicationController
         room = Room.find_by(vanage_session_id: params[:room_url])
         
         if room.present?
-            redirect_to "/rooms/#{room.vanage_session_id}"
+            redirect_to "/rooms/#{room.vanage_session_id}?user_name=#{params[:user_name]}"
         else
             redirect_to root_path, alert: 'Nenhuma sala encontrada.'
         end
